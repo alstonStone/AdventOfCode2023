@@ -1,8 +1,10 @@
-
+import java.util.*;
 
 public class Day_2 {
 
-
+	public static int redMax = 12;
+	public static int greenMax = 13;
+	public static int blueMax = 14;
 	/**
 	 * @param args
 	 *
@@ -12,10 +14,37 @@ public class Day_2 {
 		// TODO Auto-generated method stub
     String lines[] = input.split("\\r?\\n");
 
-		System.out.println(ExtractGameNumber(lines[60]));
+		for(String s: lines){
+			String current = s;
+			String currentLines[] = current.split(":");
+			String game = currentLines[0];
+			int gameNumber = ExtractGameNumber(game);
+
+			String rounds[] = currentLines[1].split(";");
+			for(String r: rounds){
+				String colors[] = r.split(",");
+				string Colorvalue = "";
+				for(String c :color){
+					if(c.contains("blue")){
+
+					}else if(c.contains("red")){
+
+					}else if(c.contains("green")){
+
+					}
+				}
+			}
+
+			System.out.println(Arrays.toString(rounds));
+
+			System.out.println(rounds.length);
+
+			System.out.println(ExtractGameNumber(lines[60]));
+		}
+
 	}
 
-  public static String ExtractGameNumber(String s){
+  public static int ExtractGameNumber(String s){
     String value ="";
     for( Character c: s.toCharArray()){
       if(c ==':'){
@@ -24,8 +53,11 @@ public class Day_2 {
         value += c;
       }
     }
-    return value;
+    return Integer.parseInt(value);
   }
+
+
+
 
 
   public static String input = "Game 1: 1 blue, 2 green, 3 red; 7 red, 8 green; 1 green, 2 red, 1 blue; 2 green, 3 red, 1 blue; 8 green, 1 blue\r\n"
