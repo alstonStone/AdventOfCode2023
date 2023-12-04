@@ -13,6 +13,7 @@ public class Day_2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
     String lines[] = input.split("\\r?\\n");
+    int sum = 0;
 
 		for(String s: lines){
 			String current = s;
@@ -21,26 +22,43 @@ public class Day_2 {
 			int gameNumber = ExtractGameNumber(game);
 
 			String rounds[] = currentLines[1].split(";");
+			boolean valid = true;
 			for(String r: rounds){
 				String colors[] = r.split(",");
-				string Colorvalue = "";
-				for(String c :color){
+				String Colorvalue = "";
+				for(String c :colors){
+					if(!valid) {
+						break;
+					}
 					if(c.contains("blue")){
-
+						String numberOnly= c.replaceAll("[^0-9]", "");
+						int colorCount = Integer.parseInt(numberOnly);
+						if(colorCount > blueMax) {
+							valid = false;
+							break;
+						}
 					}else if(c.contains("red")){
-
+						String numberOnly= c.replaceAll("[^0-9]", "");
+						int colorCount = Integer.parseInt(numberOnly);
+						if(colorCount > redMax) {
+							valid = false;
+							break;
+						}
 					}else if(c.contains("green")){
-
+						String numberOnly= c.replaceAll("[^0-9]", "");
+						int colorCount = Integer.parseInt(numberOnly);
+						if(colorCount > greenMax) {
+							valid = false;
+							break;
+						}
 					}
 				}
 			}
-
-			System.out.println(Arrays.toString(rounds));
-
-			System.out.println(rounds.length);
-
-			System.out.println(ExtractGameNumber(lines[60]));
+			if(valid) {
+				sum += gameNumber;
+			}
 		}
+		System.out.println(""+sum);
 
 	}
 
