@@ -1,9 +1,66 @@
+import java.util.ArrayList; 
+
 
 public class Day_3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		String lines[] = input.split("\\r?\\n");
+		
+		ArrayList<Integer> symbolPositions = new ArrayList<Integer>();
+		int charCount=0;
+		for(Character c: lines[1].toCharArray()) {
+			if(isSymbol(c)) {
+				symbolPositions.add(charCount);
+			}
+			charCount++;
+		}
+		System.out.println(symbolPositions);
+	}
+	
+//	public int getLineSum(String s) {
+//		int sum =0;
+//		Character prevChar = s.charAt(0);
+//		String currentValue = "";
+//		for(Character c:s.toCharArray()) {
+//			if(Character.isDigit(c)) {
+//				
+//			}else {
+//				
+//			}
+//		}
+//	}
+	
+	public static boolean isSymbol(Character c) {
+		boolean isSymbol = false;
+		if(c == '@') {
+			isSymbol = true;
+		}
+		if(c == '#') {
+			isSymbol = true;
+		}
+		if(c == '$') {
+			isSymbol = true;
+		}
+		if(c == '%') {
+			isSymbol = true;
+		}
+		if(c == '&') {
+			isSymbol = true;
+		}
+		if(c == '*') {
+			isSymbol = true;
+		}
+		if(c == '=') {
+			isSymbol = true;
+		}
+		if(c == '+') {
+			isSymbol = true;
+		}
+		if(c == '/') {
+			isSymbol = true;
+		}
+		return isSymbol;
 	}
 
 	public static String input = "........440...............418..643.....438......740.261......................................727...........................870..............\r\n"
